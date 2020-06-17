@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>Express Exchange</title>
   </head>
   <body>
-
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Express Exchange!</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p>Enter the amount (in US dollars), you want to have exchanged.</p>
+          <form class="exchange-select">
+            <label for="user-dollar">US Dollars:</label>
+            <input type="number" id="user-dollar">
+            <br>
+            <select id="exchange-type">
+              <option value="EUR">Euro</option>
+              <option value="GBP">Pound Sterling</option>
+              <option value="CHF">Swiss Franc</option>
+              <option value="INR">Indian Rupee</option>
+            </select>
+            <br>
+            <button type="submit" class="btn btn-success">Calculate!</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div id="total-calculated">
+            
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
