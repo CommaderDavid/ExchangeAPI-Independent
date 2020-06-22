@@ -9,7 +9,18 @@ $(document).ready(function() {
     e.preventDefault();
 
     let usaDollar = $("#user-dollar").val();
-    let newExchange = $("exchange-type").val();
+    let newExchange = $("#exchange-type").val();
+    let country;
+
+    if (newExchange === "EUR") {
+      country = "Europe";
+    } else if (newExchange === "GBP") {
+      country = "United Kingdom";
+    } else if (newExchange === "CHF") {
+      country = "Switzerland";
+    } else if (newExchange === "INR") {
+      country = "	India";
+    }
 
     (async () => {
       let exchangeSelect = new ExchangeRate();
@@ -17,11 +28,15 @@ $(document).ready(function() {
       getElements(response);
     })();
 
+    $("#currency-type").empty().prepend(country);
+
     function getElements(response) {
       if (response) {
-        $("#total").text(`Your total is ${response[8].newExchange}`)
+        let exchangeTotal = usaDollar * response.conversion_rates[newExchange];
+        $("#current").text(`The exchange rate is ${response.conversion_rates[newExchange]}.`);
+        $("#total").empty().append("Your total is: " + exchangeTotal.toFixed(2));
       } else {
-
+        $("#current").text(`We had an error in completing retreving your exchange rate.`);
       }
     }
   });
