@@ -34,7 +34,7 @@ $(document).ready(function() {
       if (response) {
         let exchangeTotal = usaDollar * response.conversion_rates[newExchange];
         $("#current").text(`The exchange rate is ${response.conversion_rates[newExchange]}.`);
-        $("#total").empty().append("Your total is: " + exchangeTotal.toFixed(2));
+        $("#total").empty().append("Your total is: $" + exchangeTotal.toFixed(2));
       } else {
         $("#current").text(`We had an error in completing retreving your exchange rate.`);
       }
