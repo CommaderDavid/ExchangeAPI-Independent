@@ -1,5 +1,5 @@
 export class ExchangeRate {
-  async getExchangeRateByCountry(location){
+  async getExchangeRateByCountry(){
     try {
       let response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
       let jsonifiedResponse;
@@ -7,9 +7,11 @@ export class ExchangeRate {
         jsonifiedResponse = await response.json();
       } else {
         jsonifiedResponse = false;
+        alert(`There was an error, with the response: ${response.status}`);
       }
       return jsonifiedResponse;
     } catch (error) {
+      alert(`Your error is: ${error}`);
       return false;
     }
   }
