@@ -24,7 +24,7 @@ $(document).ready(function() {
 
     (async () => {
       let exchangeSelect = new ExchangeRate();
-      const response = await exchangeSelect.getExchangeRateByCountry(newExchange);
+      const response = await exchangeSelect.getExchangeRateByCountry();
       getElements(response);
     })();
 
@@ -36,7 +36,7 @@ $(document).ready(function() {
         $("#current").text(`The exchange rate is ${response.conversion_rates[newExchange]}.`);
         $("#total").empty().append("Your total is: $" + exchangeTotal.toFixed(2));
       } else {
-        $("#current").text(`We had an error in completing retreving your exchange rate.`);
+        $("#current").text(`We had an error in completing retrieving your exchange rate.`);
       }
     }
   });
