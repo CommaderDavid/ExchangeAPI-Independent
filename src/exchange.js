@@ -11,7 +11,6 @@ export class ExchangeRate {
       }
       return jsonifiedResponse;
     } catch (error) {
-      alert(`Your error is: ${error}`);
       return false;
     }
   }

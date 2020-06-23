@@ -31,12 +31,12 @@ $(document).ready(function() {
     $("#currency-type").empty().prepend(country);
 
     function getElements(response) {
-      if (response) {
+      if (response && response.result === "success") {
         let exchangeTotal = usaDollar * response.conversion_rates[newExchange];
         $("#current").text(`The exchange rate is ${response.conversion_rates[newExchange]}.`);
         $("#total").empty().append("Your total is: $" + exchangeTotal.toFixed(2));
       } else {
-        $("#current").text(`We had an error in completing retrieving your exchange rate.`);
+        $("#current").text(`We had an error in retrieving your exchange rate. The error code was: ${response.result}`);
       }
     }
   });
