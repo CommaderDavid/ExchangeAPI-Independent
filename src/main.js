@@ -36,7 +36,7 @@ $(document).ready(function() {
         $("#current").text(`The exchange rate is ${response.conversion_rates[newExchange]}.`);
         $("#total").empty().append("Your total is: $" + exchangeTotal.toFixed(2));
       } else {
-        $("#current").text(`We had an error in retrieving your exchange rate. The error code was: ${response.result}`);
+        $("#current").text(`We had an error in retrieving your exchange rate. The error code was: ${response["error-type"]}`);
       }
     }
   });
